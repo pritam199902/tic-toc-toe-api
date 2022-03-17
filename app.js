@@ -179,8 +179,6 @@ io
             selected_room.selected_user =
                 selected_room?.selected_user == selected_room?.user1?.id ?
                     selected_room?.user2?.id : selected_room?.user1?.id
-
-
             let arr = []
             DATA.rooms.forEach(rm => {
                 if (rm.room_id === room_id) {
@@ -235,20 +233,9 @@ io
         }
 
 
-        // socket.on("calculate", ({ list, user, room_id }, callback) => {
-
-        //     if (!list || !user || !room_id) return callback(false)
-        //     const result = handleCalculate(list, user)
-
-        //     io.to(room_id)
-        //         .emit("result", result)
-        //     callback(result)
-        // })
-
-
         // on game movement
         const handleCalculate = (list, user) => {
-            console.log("calculating.....");
+            // console.log("calculating.....");
             /**
              *   0 1 2
              *   3 4 5
