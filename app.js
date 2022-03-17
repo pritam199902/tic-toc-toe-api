@@ -207,11 +207,11 @@ io
                 io.to(room_id)
                 .emit("result", result)
 
-                const reset_list =  handleResetList(room_id)
+                const reset_data =  handleResetList(room_id)
                 io.to(room_id)
-                .emit("reset-list", reset_list)
+                .emit("reset-list", reset_data)
 
-            }, 200)
+            }, 500)
 
         })
 
@@ -228,7 +228,7 @@ io
             DATA.rooms = [...arr]
 
             console.log("reset_done");
-            return DATA.rooms.filter(r => r.room_id == room_id)?.[0]?.list
+            return DATA.rooms.filter(r => r.room_id == room_id)?.[0]
 
         }
 
@@ -242,11 +242,7 @@ io
              *   6 7 8 
              */
 
-            const is_full = list?.filter(d => d?.is_selected)?.length === list?.length
-
-            if (is_full) {
-                return true
-            }
+           
 
 
             ///////////////////////////////////////////////////////////
@@ -352,6 +348,12 @@ io
             ) {
                 // console.log("winer", user);
                 return user
+            }
+
+            const is_full = list?.filter(d => d?.is_selected)?.length === list?.length
+
+            if (is_full) {
+                return true
             }
 
 
